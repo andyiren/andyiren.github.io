@@ -67,3 +67,9 @@ main{ padding-top: 3rem; }
 .project-page .intro{ opacity:.82; max-width: 58rem; line-height: 1.75; }
 .gallery{ display:flex; flex-direction:column; gap: 1.25rem; margin-top: 2rem; }
 .gallery img{ width:100%; height:auto; border-radius: 14px; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03); }
+
+
+/* Cargo-like frame tweaks */
+.project-page .header{ margin-bottom: 2.2rem; }
+.project-page header{ margin: 0 0 1.25rem 0; }
+.project-page .intro{ margin-top: .25rem; }
