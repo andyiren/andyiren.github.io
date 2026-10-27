@@ -10,6 +10,10 @@
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-monospace, "IBM Plex Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 body { font-size:18px; line-height:1.6; }
+/* Courtesy protection only: browsers must receive content to display it. */
+body { -webkit-user-select:none; user-select:none; }
+img { -webkit-user-drag:none; -webkit-touch-callout:none; }
+input, textarea, [contenteditable="true"] { -webkit-user-select:text; user-select:text; }
 a{ color:var(--link); text-decoration:none; }
 a:hover{ text-decoration:underline; }
 .wrap{ max-width: var(--max); margin: 0 auto; padding: var(--pad); }

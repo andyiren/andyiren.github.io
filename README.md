@@ -21,3 +21,5 @@ The site itself has no runtime dependencies. Optional maintenance scripts requir
 - `python restore_design.py` reimports the original Cargo exports from the parent folder. It replaces Design content, so use it only when deliberately reimporting those sources.
 
 No CV PDF or personal contact/reference details are included in the published files.
+
+Photography uses /en/photography/ (and equivalent language routes); old .html addresses redirect. Basic client-side copy/drag/context-menu deterrents are enabled, but cannot prevent screenshots, developer tools, network downloads, or access to public repository assets.
