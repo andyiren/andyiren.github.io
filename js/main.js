@@ -4,6 +4,6 @@
   document.querySelectorAll("[data-lang-link]").forEach(a=>{
     const l = a.getAttribute("data-lang-link");
     if(l === htmlLang){ a.setAttribute("aria-current","page"); }
-    a.addEventListener("click", ()=> localStorage.setItem("lang", l));
+    a.addEventListener("click", ()=> { try { localStorage.setItem("lang", l); } catch (_) {} });
   });
 })();

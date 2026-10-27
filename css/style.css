@@ -4,11 +4,12 @@
   --link: #be002f;
   --max: 66rem;
   --pad: 2.4rem;
-  --h2: 1.2rem;
+  --h2: 1.4rem;
 }
 
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: ui-monospace, "IBM Plex Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+body { font-size:18px; line-height:1.6; }
 a{ color:var(--link); text-decoration:none; }
 a:hover{ text-decoration:underline; }
 .wrap{ max-width: var(--max); margin: 0 auto; padding: var(--pad); }
@@ -43,7 +44,7 @@ main{ padding-top: 3rem; }
 .project .subtitle{ opacity:.75; margin:0; font-size:.9rem; }
 .lang{
   display:inline-flex; gap:.5rem; align-items:center; justify-content:flex-end;
-  font-size: .95rem; opacity:.9;
+  font-size: 1.05rem; opacity:.9;
 }
 .lang a{ color: rgba(255,255,255,.7); }
 .lang a[aria-current="page"]{ color: rgba(255,255,255,.35); pointer-events:none; text-decoration:none; }
@@ -62,7 +63,7 @@ main{ padding-top: 3rem; }
 
 
 /* Project pages */
-.project-page header{ margin: 2.2rem 0 1.6rem 0; }
+.project-page .project-intro{ margin: 2.2rem 0 1.6rem 0; }
 .project-page h1{ font-size: 1.35rem; margin: 0 0 .9rem 0; font-weight:600; }
 .project-page .intro{ opacity:.82; max-width: 58rem; line-height: 1.75; }
 .gallery{ display:flex; flex-direction:column; gap: 1.25rem; margin-top: 2rem; }
@@ -71,5 +72,68 @@ main{ padding-top: 3rem; }
 
 /* Cargo-like frame tweaks */
 .project-page .header{ margin-bottom: 2.2rem; }
-.project-page header{ margin: 0 0 1.25rem 0; }
+.project-page .project-intro{ margin: 0 0 1.25rem 0; }
 .project-page .intro{ margin-top: .25rem; }
+
+/* First restoration pass: the Cargo frame has no card decoration. */
+.site-header { margin: 0 0 5rem; }
+.site-header .logo { display:block; max-width:100%; height:auto; }
+.project, .gallery img { border:0; border-radius:0; background:transparent; }
+.gallery img { display:block; }
+a:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+@media (max-width:620px) {
+  .site-header { grid-template-columns:64px minmax(0,1fr); gap:1.25rem 1rem; margin-bottom:2.5rem; align-items:start; }
+  .site-header .logo { width:64px; }
+  .site-header .center { grid-column:1 / -1; grid-row:2; text-align:left; }
+  .site-header .right { text-align:right; }
+  .site-header h2 { font-size:1.15rem; }
+  .site-header .nav-inline { display:flex; flex-wrap:wrap; justify-content:flex-start; gap:.5rem 1.5rem; }
+  .site-header .nav-inline a { margin:0; min-height:44px; display:inline-flex; align-items:center; }
+  .site-header .lang { gap:.25rem; font-size:1rem; flex-wrap:wrap; }
+  .site-header .lang a { min-width:28px; min-height:44px; display:inline-flex; justify-content:center; align-items:center; }
+  .site-header .right h2 a { display:inline-flex; align-items:center; min-height:44px; }
+}
+/* Cargo Design: three independent columns, with original image proportions. */
+.wrap { max-width: 1600px; }
+.design-index { padding-top: 0; }
+.design-columns { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3rem; }
+.design-column { min-width:0; }
+.design-project { margin:0 0 3rem; }
+.design-project img { display:block; width:100%; height:auto; }
+.design-project h2 { font:inherit; font-size:1.15rem; margin:.8rem 0 0; font-weight:400; line-height:1.5; }
+.project-preview h2 { color:rgba(255,255,255,.65); }
+.nav-inline a[aria-current="page"] { text-decoration:underline; text-underline-offset:.3em; }
+.cargo-project { width: min(100%, 1050px); margin:0 auto; padding-top:1rem; color:rgba(255,255,255,.65); line-height:1.6; }
+.cargo-project h2 { color:#fff; font-size:1.5rem; font-weight:400; line-height:1.4; }
+.cargo-project img { max-width:100%; height:auto; display:inline-block; vertical-align:middle; }
+.cargo-project [grid-row] { display:flex; gap:2rem; align-items:flex-start; }
+.cargo-project [grid-col] { min-width:0; flex:1; }
+.cargo-project [grid-col="4"] { flex:4; }
+.cargo-project [grid-col="8"] { flex:8; }
+.cargo-project [grid-col] > img { width:100%; }
+@media(max-width:900px) { .design-columns { gap:1.5rem; } }
+@media(max-width:620px) {
+  body { font-size:17px; }
+  .wrap { padding:1.25rem; }
+  .design-columns { grid-template-columns:1fr; gap:0; }
+  .design-project { margin-bottom:2.5rem; }
+  .design-project h2 { font-size:1.15rem; }
+  .cargo-project { padding-top:0; overflow-wrap:break-word; }
+  .cargo-project h2 { font-size:1.35rem; }
+  .cargo-project [grid-row] { flex-direction:column; gap:1.5rem; }
+  .cargo-project [grid-col] { width:100%; }
+  .cargo-project img[style] { min-width:55%; }
+}
+
+.information-page { max-width:760px; margin:0 auto; padding:0 0 4rem; color:rgba(255,255,255,.75); line-height:1.8; overflow-wrap:break-word; }
+.information-page h1 { color:#fff; font-size:clamp(1.8rem,4vw,2.5rem); line-height:1.25; font-weight:400; margin:0 0 .65rem; }
+.information-page .information-role { color:var(--link); margin:0 0 2.5rem; font-size:1rem; }
+.information-page p { margin:0 0 1.5rem; }
+.site-header .nav-inline { display:flex; justify-content:center; flex-wrap:wrap; gap:.5rem 1.5rem; }
+.site-header .nav-inline a { margin:0; }
+.site-header .right h2 a[aria-current="page"] { text-decoration:underline; text-underline-offset:.3em; }
+@media(max-width:620px) {
+  .site-header .nav-inline { justify-content:flex-start; }
+  .information-page { padding-bottom:2rem; }
+  .information-page .information-role { margin-bottom:2rem; }
+}

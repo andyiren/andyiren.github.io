@@ -1,7 +1,7 @@
 (function(){
   const supported = ["en","zh","ja","de"];
   function pickLang(){
-    const saved = localStorage.getItem("lang");
+    let saved; try { saved = localStorage.getItem("lang"); } catch (_) {}
     if(saved && supported.includes(saved)) return saved;
     const n = (navigator.language || "en").toLowerCase();
     if(n.startsWith("zh")) return "zh";
